@@ -4,27 +4,26 @@ using namespace std;
 class Singleton
 {
 private:
-	// ¸â¹ö º¯¼ö
+	// ë©¤ë²„ ë³€ìˆ˜
 	string name, company;
-	// Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º·Î °¡¸®Å³ Á¤Àû Æ÷ÀÎÅÍ
+	// í´ë˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ë¡œ ê°€ë¦¬í‚¬ ì •ì  í¬ì¸í„°
 	static Singleton* instance;
-	// ±âº» »ı¼ºÀÚ
+	// ê¸°ë³¸ ìƒì„±ì
 	Singleton() {}
-	// #1
+	// # constructor overloading
 	// Singleton(const Singleton*) {}
 	// Singleton& operator = (const Singleton&) {}
 	~Singleton() {}
 
 public:
-	// #2
-	// º¹»ç »ı¼ºÀÚ »èÁ¦
-	Singleton(const Singleton&) = delete;
-	Singleton& operator=(const Singleton&) = delete;
+	// ë³µì‚¬ ìƒì„±ì ì‚­ì œ
+	// Singleton(const Singleton&) = delete;
+	// Singleton& operator=(const Singleton&) = delete;
 
-	// °´Ã¼ »ı¼º = getInstance
+	// ê°ì²´ ìƒì„± = getInstance
 	static Singleton* getInstance()
 	{
-		// instance°¡ °¡¸®Å°´Â °´Ã¼°¡ ¾øÀ¸¸é new, ÀÖÀ¸¸é ÇØ´ç instance ¹İÈ¯
+		// instanceê°€ ê°€ë¦¬í‚¤ëŠ” ê°ì²´ê°€ ì—†ìœ¼ë©´ new, ìˆìœ¼ë©´ í•´ë‹¹ instance ë°˜í™˜
 		return instance = instance == NULL ? new Singleton() : instance;
 	}
 	void setValues(string name, string company)
@@ -37,5 +36,5 @@ public:
 		cout << name << "'s company is " << company << "." << endl;
 	}
 };
-// instancePtr -> nullptr ÃÊ±âÈ­
+// instancePtr -> nullptr ì´ˆê¸°í™”
 Singleton* Singleton::instance = nullptr;
