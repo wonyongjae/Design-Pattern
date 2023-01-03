@@ -13,8 +13,8 @@ private:
 	static T* instance;
 
 public:
-	Singleton(const Singleton& v) = delete;
-	void operator=(const Singleton& v) = delete;
+	// Singleton(const Singleton& v) = delete;
+	// void operator=(const Singleton& v) = delete;
 
 	static T* getInstance()
 	{
